@@ -1,0 +1,37 @@
+{
+    "comics": [
+        {
+            "id": 1,
+            "title": "Kiếm sĩ lạc lối",
+            "genre": "Tiên hiệp",
+            "chapters": 120,
+            "thumb": "TRUYỆN 01",
+            "description": "Câu chuyện đi tìm bản ngã của một kiếm sĩ bị mất trí nhớ."
+        },
+        {
+            "id": 2,
+            "title": "Nhật ký lớp A",
+            "genre": "Đời thường",
+            "chapters": 56,
+            "thumb": "TRUYỆN 02",
+            "description": "Những mẩu chuyện hài hước về tuổi học trò."
+        },
+        {
+            "id": 3,
+            "title": "Vực sâu thành phố",
+            "genre": "Hành động",
+            "chapters": 230,
+            "thumb": "TRUYỆN 03",
+            "description": "Cuộc chiến chống tội phạm trong lòng thành phố hiện đại."
+        },
+        {
+            "id": 4,
+            "title": "Bếp nhà thần kỳ",
+            "genre": "Hài hước",
+            "chapters": 48,
+            "thumb": "TRUYỆN 04",
+            "description": "Chiếc nồi thần kỳ có thể nấu ra mọi món ăn ngon nhất thế giới."
+        }
+    ],
+    "anime": []
+}

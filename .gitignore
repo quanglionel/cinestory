@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# IDEs and Tools
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cloudflare / Serverless
+.wrangler/
+.devvars
+
+# Local Environment
+.env
+.env.*.local
+
+# Build outputs
+dist/
+build/
+
+# Agent specific
+.agent/
+.gemini/
+.git/
+# (If we are initializing git now, we don't ignore .git usually, but sometimes top-level ones are ignored in sub-repos. I will leave it out or keep it common.)

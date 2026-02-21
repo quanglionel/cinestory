@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e55d35" />
+  <title>CineStory - Trang Truyện</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body data-mode="comic">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../index.html">CineStory</a>
+
+        <nav class="desktop-nav">
+          <ul class="nav-list">
+            <li><a href="#" class="nav-link active" data-type="truyen-moi">Trang chủ</a></li>
+            <li><a href="#" class="nav-link" data-type="truyen-moi">Truyện mới</a></li>
+            <li><a href="#" class="nav-link" data-type="hoan-thanh">Hoàn thành</a></li>
+            <li><a href="#" class="nav-link" data-type="categories">Thể loại</a></li>
+            <li><a href="#" class="nav-link" data-type="history">Lịch sử</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <div class="header-search">
+            <input type="text" id="headerSearchInput" placeholder="Tìm truyện..." autocomplete="off" />
+            <div id="searchSuggestions" class="search-suggestions"></div>
+            <button id="headerSearchBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div class="mode-switch-wrap" aria-label="Chuyển chế độ Anime hoặc Truyện">
+            <span id="animeLabel" class="mode-label">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                <polyline points="17 2 12 7 7 2"></polyline>
+              </svg>
+              <span class="label-text">Anime</span>
+            </span>
+            <label class="switch" for="modeSwitch">
+              <input id="modeSwitch" type="checkbox" aria-label="Bật để chuyển sang truyện" />
+              <span class="slider"></span>
+            </label>
+            <span id="comicLabel" class="mode-label">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span class="label-text">Truyện</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="section">
+        <div class="container" id="mainContent">
+          <!-- JS will populate sections here -->
+          <div class="section-head">
+            <h2>Đang tải...</h2>
+          </div>
+          <div class="card-grid"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 CineStory. Trang chuyên Truyện.</p>
+      </div>
+    </footer>
+  </div>
+
+  <nav class="mobile-nav">
+    <a href="../index.html" class="nav-item is-active" data-type="truyen-moi">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Trang chủ</span>
+    </a>
+    <a href="#" class="nav-item" data-type="hoan-thanh">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>Hoàn thành</span>
+    </a>
+    <a href="#" class="nav-item" data-type="categories">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>Thể loại</span>
+    </a>
+    <a href="#" class="nav-item" data-type="history">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Lịch sử</span>
+    </a>
+  </nav>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

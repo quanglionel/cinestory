@@ -1,0 +1,226 @@
+.detail-container {
+    margin-top: 2rem;
+}
+
+.detail-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3.5rem;
+    margin-bottom: 3rem;
+}
+
+.detail-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.detail-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.meta-label {
+    color: var(--muted);
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.meta-value {
+    font-weight: 700;
+}
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.genre-item {
+    background: var(--line);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.genre-item:hover {
+    background: var(--comic-1);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-read {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-main {
+    background: var(--comic-1);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(38, 103, 255, 0.2);
+}
+
+.btn-main:hover {
+    background: var(--comic-2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(38, 103, 255, 0.3);
+}
+
+.btn-sub {
+    background: #fff;
+    color: var(--comic-1);
+    border: 2px solid var(--comic-1);
+}
+
+.btn-sub:hover {
+    background: var(--bg);
+    transform: translateY(-2px);
+}
+
+.chapter-section {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.chapter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.chapter-item {
+    padding: 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.chapter-item:hover {
+    border-color: var(--comic-1);
+    color: var(--comic-1);
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+.chapter-item.active-chapter {
+    border-color: var(--comic-1);
+    background: rgba(38, 103, 255, 0.1);
+    color: var(--comic-1);
+}
+
+.btn-sort {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    color: var(--muted);
+}
+
+.btn-sort:hover {
+    border-color: var(--comic-1);
+    color: var(--comic-1);
+    background: #fff;
+}
+
+.chapter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.chapter-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chapter-badge {
+    background: rgba(38, 103, 255, 0.1);
+    color: var(--comic-1);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(38, 103, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .detail-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .detail-poster {
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .info-meta {
+        justify-content: center;
+    }
+
+    .detail-info h1 {
+        font-size: 1.8rem;
+    }
+}

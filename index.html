@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e55d35" />
+  <title>CineStory - Đang chuyển trang</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="assets/css/redirect.css" />
+</head>
+
+<body>
+  <p>Đang chuyển đến trang truyện...</p>
+  <noscript>
+    <p>Javascript đang tắt. Mở thủ công: <a href="pages/comic.html">Truyện</a>.</p>
+  </noscript>
+  <script>
+    (function () {
+      var key = "cineStoryMode";
+      localStorage.setItem(key, "comic");
+      window.location.replace("pages/comic.html");
+    })();
+  </script>
+</body>
+
+</html>

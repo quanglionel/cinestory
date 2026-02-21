@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineStory - Trang Anime (Tạm dừng)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body data-mode="anime" data-disabled="true">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../index.html">CineStory</a>
+
+        <nav class="desktop-nav">
+          <ul class="nav-list">
+            <li><a href="anime.html" class="nav-link active">Trang chủ</a></li>
+            <li><a href="#" class="nav-link">Phim mới</a></li>
+            <li><a href="#" class="nav-link">Bộ dài tập</a></li>
+            <li><a href="#" class="nav-link">Thể loại</a></li>
+          </ul>
+        </nav>
+
+        <div class="mode-switch-wrap" aria-label="Chế độ Anime tạm khóa">
+          <span id="animeLabel" class="mode-label is-active">Anime</span>
+          <label class="switch" for="modeSwitch">
+            <input id="modeSwitch" type="checkbox" aria-label="Chế độ anime đang tạm dừng" disabled />
+            <span class="slider"></span>
+          </label>
+          <span id="comicLabel" class="mode-label">Truyện</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero anime-hero">
+        <div class="container">
+          <div class="coming-soon-card">
+            <p class="tag">CHẾ ĐỘ ANIME</p>
+            <h1>Chức năng anime sẽ phát triển sau</h1>
+            <p class="lead">Tạm thời đã disable toàn bộ tính năng ở mode anime để tập trung xây dựng phần truyện.</p>
+            <p class="notice">Vui lòng chuyển sang trang truyện để tiếp tục.</p>
+            <a class="btn btn-primary" href="comic.html">Sang trang truyện</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 CineStory. Chế độ anime tạm dừng phát triển.</p>
+      </div>
+    </footer>
+  </div>
+
+  <nav class="mobile-nav">
+    <a href="../index.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Trang chủ</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"></rect>
+        <rect x="14" y="3" width="7" height="7"></rect>
+        <rect x="14" y="14" width="7" height="7"></rect>
+        <rect x="3" y="14" width="7" height="7"></rect>
+      </svg>
+      <span>Thể loại</span>
+    </a>
+    <a href="comic.html" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+      </svg>
+      <span>Tủ sách</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Cá nhân</span>
+    </a>
+  </nav>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

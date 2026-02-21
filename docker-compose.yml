@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  cinestory:
+    build: .
+    container_name: cinestory_app
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules # Giữ node_modules trong container để không làm rác máy host
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Giúp hot reload nhạy hơn khi dùng volume mount trên Windows
+    restart: always

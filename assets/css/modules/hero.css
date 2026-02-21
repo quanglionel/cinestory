@@ -1,0 +1,54 @@
+.hero {
+    padding: clamp(2.5rem, 8vw, 4.2rem) 0 2.5rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.hero-grid h1 {
+    margin: 0.8rem 0 0.6rem;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+}
+
+.lead {
+    color: var(--muted);
+    max-width: 52ch;
+}
+
+.hero-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+.hero-card h3 {
+    margin-top: 0;
+}
+
+.coming-soon-card {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.coming-soon-card .lead {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coming-soon-card .notice {
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}

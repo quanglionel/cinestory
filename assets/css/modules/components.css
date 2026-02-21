@@ -1,0 +1,267 @@
+/* Cards */
+.card {
+    flex: 0 0 240px;
+    scroll-snap-align: start;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.thumb {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    height: auto;
+    border-radius: 0;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.card-content {
+    padding: 0.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    margin: 0.1rem 0;
+    font-size: 1rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.genre-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--comic-1);
+}
+
+.time-tag {
+    font-size: 0.72rem;
+    color: var(--muted);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.chapter-info {
+    margin-top: 5px !important;
+    font-size: 0.85rem !important;
+}
+
+.chapter-info strong {
+    color: var(--text);
+}
+
+/* Card Grid & Sliders */
+.card-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-inline: calc(var(--container-px) * -1);
+    padding-inline: var(--container-px);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.card-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.card-grid.is-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    overflow-x: visible;
+    scroll-snap-type: none;
+    margin-inline: 0;
+    padding-inline: 0;
+}
+
+.card-grid.is-grid .card {
+    flex: none;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+}
+
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slider-container:hover .slider-nav-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slider-nav-btn:hover {
+    background: var(--comic-1);
+    color: #fff;
+    border-color: var(--comic-1);
+}
+
+.slider-nav-btn.prev {
+    left: -22px;
+}
+
+.slider-nav-btn.next {
+    right: -22px;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #fff;
+}
+
+.anime-hero .btn-primary {
+    background: linear-gradient(120deg, var(--primary), var(--primary-2));
+}
+
+.comic-hero .btn-primary {
+    background: linear-gradient(120deg, var(--comic-1), var(--comic-2));
+}
+
+.btn-ghost {
+    border: 1px solid var(--line);
+    background: #fff;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--line);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    color: var(--text);
+}
+
+.btn-back:hover {
+    background: var(--bg);
+    border-color: var(--comic-1);
+    color: var(--comic-1);
+}
+
+/* History */
+.remove-history-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.card:hover .remove-history-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.remove-history-btn:hover {
+    background: #ff4757;
+    transform: scale(1.1);
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+/* Genre Grid */
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.genre-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+    transition: all 0.2s;
+    font-weight: 700;
+    color: var(--text);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.genre-card:hover {
+    border-color: var(--comic-1);
+    color: var(--comic-1);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}

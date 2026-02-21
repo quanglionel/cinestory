@@ -1,0 +1,374 @@
+:root {
+    --reader-bg: #1a1a1a;
+    --header-h: 60px;
+}
+
+body.reader-mode {
+    background: var(--reader-bg);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header */
+.reader-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.reader-header.is-hidden {
+    transform: translateY(-100%);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.back-btn {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chapter-info-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.chapter-info-top h1 {
+    font-size: 0.95rem;
+    margin: 0;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.chapter-info-top span {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.btn-list {
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-list:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-arrow {
+    min-width: 90px;
+    height: 38px;
+    padding: 0 12px;
+    background: var(--comic-1);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.nav-arrow.disabled {
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Image Container */
+.reader-content {
+    margin-top: var(--header-h);
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.reader-image {
+    width: 100%;
+    display: block;
+    height: auto;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Bottom Controls */
+.reader-footer {
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: #000;
+}
+
+.next-chapter-box {
+    width: 100%;
+    padding: 50px 20px;
+    background: rgba(38, 103, 255, 0.05);
+    border: 2px dashed rgba(38, 103, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.next-chapter-box:hover {
+    background: rgba(38, 103, 255, 0.1);
+    border-color: var(--comic-1);
+}
+
+.next-chapter-box .icon {
+    margin-bottom: 10px;
+    color: var(--comic-1);
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.footer-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.footer-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-btn.primary {
+    background: var(--comic-1);
+    border-color: var(--comic-1);
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--reader-bg);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.4s ease;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(38, 103, 255, 0.2);
+    border-top-color: var(--comic-1);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 680px) {
+    .chapter-info-top h1 {
+        font-size: 0.85rem;
+    }
+
+    .nav-arrow span,
+    .btn-list span {
+        display: none;
+    }
+
+    .nav-arrow {
+        min-width: 44px;
+        padding: 0;
+    }
+
+    .nav-left {
+        flex: none;
+    }
+
+    .chapter-info-top {
+        display: none;
+    }
+}
+
+/* Chapter Drawer */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.drawer-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.chapter-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 80%);
+    background: #222;
+    z-index: 3001;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.chapter-drawer.is-active {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-header h2 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.btn-close-drawer {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.drawer-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.drawer-item {
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    margin-bottom: 4px;
+}
+
+.drawer-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.drawer-item.active {
+    background: var(--comic-1);
+    color: #fff;
+    font-weight: 700;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: var(--comic-1);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
