@@ -57,6 +57,15 @@ body.is-leaving .page-shell {
     transition: opacity 180ms ease, transform 180ms ease;
 }
 
+/* Bottom Nav (Mobile only) */
+.mobile-nav {
+    display: none;
+}
+
+svg {
+    max-width: 100%;
+}
+
 /* Skeleton Loading */
 .skeleton {
     background: var(--line);

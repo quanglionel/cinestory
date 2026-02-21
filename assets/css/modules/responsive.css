@@ -227,4 +227,21 @@
         font-size: 0.9rem;
         padding: 0.8rem 0.5rem;
     }
+
+    /* Bottom Nav (Mobile only) */
+    .mobile-nav {
+        display: flex;
+    }
+
+    /* Footer Responsive */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
 }
