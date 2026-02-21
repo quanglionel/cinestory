@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cinestory-cache-v2';
+const CACHE_NAME = 'cinestory-cache-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -29,25 +29,24 @@ const ASSETS_TO_CACHE = [
     '/assets/js/modules/utils.js'
 ];
 
-// Install Event
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
-            console.log('[Service Worker] Caching all assets');
-            return cache.addAll(ASSETS_TO_CACHE);
+            // Sử dụng addAll nhưng bọc trong Promise.all để tránh 1 file lỗi làm hỏng cả cache
+            return Promise.allSettled(
+                ASSETS_TO_CACHE.map(url => cache.add(url))
+            );
         })
     );
     self.skipWaiting();
 });
 
-// Activate Event
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cache) => {
                     if (cache !== CACHE_NAME) {
-                        console.log('[Service Worker] Cleaning old cache');
                         return caches.delete(cache);
                     }
                 })
@@ -57,9 +56,7 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Fetch Event
 self.addEventListener('fetch', (event) => {
-    // Bỏ qua các yêu cầu không phải GET hoặc API (để server xử lý cache API riêng)
     if (event.request.method !== 'GET' || event.request.url.includes('/api/')) {
         return;
     }
@@ -71,10 +68,18 @@ self.addEventListener('fetch', (event) => {
             }
 
             return fetch(event.request).then((networkResponse) => {
-                // Cache các file tĩnh mới nếu cần (nhưng ở đây đã liệt kê đủ ASSETS_TO_CACHE)
+                // Sửa lỗi redirect mode: Nếu response bị redirect, tạo một response mới từ blob
+                if (networkResponse.redirected) {
+                    return networkResponse.blob().then(blob => {
+                        return new Response(blob, {
+                            headers: networkResponse.headers,
+                            status: networkResponse.status,
+                            statusText: networkResponse.statusText
+                        });
+                    });
+                }
                 return networkResponse;
             }).catch(() => {
-                // Fallback cho navigation nếu mất mạng
                 if (event.request.mode === 'navigate') {
                     return caches.match('/index.html');
                 }
