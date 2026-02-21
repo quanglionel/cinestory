@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f46e5" />
+    <title>Chi tiết Anime - CineStory</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body data-mode="anime">
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="container nav-wrap">
+                <a class="brand" href="../index.html">CineStory</a>
+                <div class="header-search">
+                    <input type="text" id="headerSearchInput" placeholder="Tìm anime..." autocomplete="off" />
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+            </div>
+        </header>
+
+        <main id="detailContent">
+            <div class="container" style="padding: 2rem 0; text-align: center;">
+                <h2>Đang tải thông tin...</h2>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <p>© 2026 CineStory. Chúc bạn xem phim vui vẻ!</p>
+            </div>
+        </footer>
+    </div>
+
+    <nav class="mobile-nav">
+        <a href="anime.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Trang chủ</span>
+        </a>
+        <a href="anime.html?type=history" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Lịch sử</span>
+        </a>
+    </nav>
+
+    <script type="module" src="../assets/js/anime-detail.js"></script>
+</body>
+
+</html>

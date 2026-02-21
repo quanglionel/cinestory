@@ -1,23 +1,32 @@
-const CACHE_NAME = 'cinestory-cache-v1';
+const CACHE_NAME = 'cinestory-cache-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/pages/comic.html',
+    '/pages/anime.html',
     '/pages/comic-detail.html',
+    '/pages/anime-detail.html',
     '/pages/read.html',
+    '/pages/watch.html',
     '/assets/css/styles.css',
-    '/assets/css/detail.css',
-    '/assets/css/reader.css',
-    '/assets/css/redirect.css',
+    '/assets/css/modules/global.css',
+    '/assets/css/modules/header.css',
+    '/assets/css/modules/hero.css',
+    '/assets/css/modules/components.css',
+    '/assets/css/modules/responsive.css',
     '/assets/js/main.js',
     '/assets/js/detail.js',
+    '/assets/js/anime-detail.js',
     '/assets/js/reader.js',
+    '/assets/js/watch.js',
     '/assets/js/modules/config.js',
     '/assets/js/modules/storage.js',
-    '/assets/js/modules/api.js',
+    '/assets/js/modules/content.js',
     '/assets/js/modules/renderer.js',
     '/assets/js/modules/search.js',
-    '/assets/js/modules/mode.js'
+    '/assets/js/modules/mode.js',
+    '/assets/js/modules/pwa.js',
+    '/assets/js/modules/utils.js'
 ];
 
 // Install Event

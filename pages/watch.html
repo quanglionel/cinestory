@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111" />
+    <title>Đang xem - CineStory</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .watch-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 0 5rem 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #111;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background: var(--bg);
+            border-radius: 20px;
+            margin: -20px 1rem 0 1rem;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--line);
+            color: var(--text);
+        }
+
+        .video-info h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .ep-link {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            color: var(--text);
+            padding: 0.6rem;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .ep-link.active {
+            background: var(--anime-1);
+            color: #fff;
+            border-color: var(--anime-1);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .ep-link:hover:not(.active) {
+            border-color: var(--anime-1);
+            color: var(--anime-1);
+        }
+
+        .back-nav {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .video-info {
+                margin: 0;
+                border-radius: 0;
+                border: none;
+                background: #000;
+                color: #fff;
+            }
+
+            .ep-link {
+                border-radius: 8px;
+            }
+
+            .back-nav {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 100;
+                pointer-events: none;
+            }
+
+            .back-btn {
+                pointer-events: auto;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+
+<body data-mode="anime">
+    <div class="page-shell">
+        <div class="back-nav">
+            <button class="back-btn" onclick="history.back()">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Trở về</span>
+            </button>
+        </div>
+
+        <main class="watch-container">
+            <div class="video-wrapper" id="playerWrapper">
+                <div style="display:flex; align-items:center; justify-content:center; height:100%; color:#555;">
+                    <p>Đang chuẩn bị trình phát...</p>
+                </div>
+            </div>
+
+            <div class="video-info" id="videoInfo">
+                <!-- Info will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../assets/js/watch.js"></script>
+</body>
+
+</html>

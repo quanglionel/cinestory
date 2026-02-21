@@ -1,6 +1,9 @@
 import { getHistory, addToHistory, removeFromHistory } from './storage.js';
 
 export function renderCard(item, isHistory = false) {
+    const mode = document.body.dataset.mode === "comic" ? "comic" : "anime";
+    const label = mode === "comic" ? "Chap" : "Tập";
+
     return `
         <article class="card" data-id="${item.id}" data-item='${JSON.stringify(item).replace(/'/g, "&apos;")}'>
             <div class="thumb" style="background-image: url('${item.thumb}');">
@@ -13,11 +16,11 @@ export function renderCard(item, isHistory = false) {
             <div class="card-content">
                 <div class="card-meta">
                     <span class="genre-tag">${item.genre}</span>
-                    <span class="time-tag">${isHistory ? 'Đang đọc' : (item.updatedAt || 'Vừa xong')}</span>
+                    <span class="time-tag">${isHistory ? (mode === "comic" ? 'Đang đọc' : 'Đang xem') : (item.updatedAt || 'Vừa xong')}</span>
                 </div>
                 <h3>${item.title}</h3>
                 <p class="chapter-info">
-                   ${isHistory && item.lastReadChapter ? `Đọc đến: <strong>Chap ${item.lastReadChapter}</strong>` : `Cập nhật: <strong>${item.chapters || '...'}</strong>`}
+                   ${isHistory && item.lastReadChapter ? `${mode === "comic" ? "Đọc đến" : "Xem đến"}: <strong>${label} ${item.lastReadChapter}</strong>` : `Mới nhất: <strong>${item.chapters || item.episode_current || '...'}</strong>`}
                 </p>
             </div>
         </article>
@@ -25,7 +28,7 @@ export function renderCard(item, isHistory = false) {
 }
 
 export function renderSection(title, items, isHistory = false, isGrid = false) {
-    if (items.length === 0) return "";
+    if (!items || items.length === 0) return "";
     const sectionId = `section-${Math.random().toString(36).substr(2, 9)}`;
 
     return `
@@ -49,7 +52,9 @@ export function renderSection(title, items, isHistory = false, isGrid = false) {
 }
 
 export function setupCardEvents(currentType, callback) {
+    const mode = document.body.dataset.mode === "comic" ? "comic" : "anime";
     const cards = document.querySelectorAll(".card:not(.is-loading)");
+
     cards.forEach(card => {
         card.addEventListener("click", (e) => {
             const itemData = JSON.parse(card.dataset.item);
@@ -61,8 +66,10 @@ export function setupCardEvents(currentType, callback) {
                 return;
             }
 
-            addToHistory(itemData);
-            window.location.href = `comic-detail.html?slug=${itemData.slug}`;
+            addToHistory({ ...itemData, mode });
+
+            const detailPage = mode === "comic" ? "comic-detail.html" : "anime-detail.html";
+            window.location.href = `${detailPage}?slug=${itemData.slug}`;
         });
     });
 }

@@ -10,7 +10,6 @@ registerServiceWorker();
 document.addEventListener("DOMContentLoaded", () => {
     const modeSwitch = document.getElementById("modeSwitch");
     const currentMode = document.body.dataset.mode === "comic" ? "comic" : "anime";
-    const isAnimeDisabled = document.body.dataset.disabled === "true";
 
     const searchInput = document.getElementById("headerSearchInput");
     const searchBtn = document.getElementById("headerSearchBtn");
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link, .nav-item[data-type]");
 
     // --- INIT ---
-    if (isAnimeDisabled) localStorage.setItem(CONFIG.MODE_KEY, "comic");
     if (modeSwitch) modeSwitch.checked = currentMode === "comic";
     setLabelState(currentMode);
 
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const touchEndX = e.changedTouches[0].screenX;
         if (touchEndX - touchStartX > 100 && touchStartX < 50) {
             if (window.history.length > 1) window.history.back();
-            else window.location.href = 'comic.html';
+            else window.location.href = currentMode === 'comic' ? 'comic.html' : 'anime.html';
         }
     }, { passive: true });
 });

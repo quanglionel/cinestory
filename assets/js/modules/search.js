@@ -4,8 +4,9 @@ export async function showSuggestions(query, suggestionsBox, searchInput, fetchA
         return;
     }
 
+    const mode = document.body.dataset.mode === "comic" ? "comic" : "anime";
     try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&mode=${mode}`);
         const data = await response.json();
 
         if (data.length > 0) {
